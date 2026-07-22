@@ -1,0 +1,86 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema Universidad</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SistemaUniversidad.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+
+        <div class="container">
+
+            <span class="navbar-brand fw-bold">
+                🎓 Sistema Universidad
+            </span>
+
+            @if (Context.Session.GetString("Usuario") != null)
+            {
+                <div class="ms-auto d-flex align-items-center">
+
+                    <span class="text-white me-4">
+
+                        <strong>Usuario:</strong>
+                        @Context.Session.GetString("Usuario")
+
+                        &nbsp; | &nbsp;
+
+                        <strong>Rol:</strong>
+                        @Context.Session.GetString("Rol")
+
+                    </span>
+
+                    <a asp-controller="Cuenta"
+                       asp-action="CerrarSesion"
+                       class="btn btn-danger btn-sm">
+
+                        Cerrar sesión
+
+                    </a>
+
+                </div>
+            }
+
+        </div>
+
+    </nav>
+
+    <div class="container mt-4">
+
+        @RenderBody()
+
+    </div>
+
+    <footer class="text-center text-muted mt-5 mb-3">
+
+        <hr />
+
+        <small>
+
+            Sistema Universidad © 2026
+
+        </small>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
