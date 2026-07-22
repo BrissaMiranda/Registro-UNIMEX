@@ -1,0 +1,247 @@
+@model SistemaUniversidad.ViewModels.CrearUsuarioViewModel
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Registrar Usuario";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Encabezado -->
+                <div class="card-header bg-success text-white text-center py-4 rounded-top-4">
+
+                    <i class="bi bi-person-plus-fill display-4"></i>
+
+                    <h2 class="mt-2 mb-1">
+                        Registrar Usuario
+                    </h2>
+
+                    <p class="mb-0">
+                        Complete la información para crear una nueva cuenta.
+                    </p>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <div class="alert alert-warning border-start border-5 border-warning">
+
+                        <div class="d-flex">
+
+                            <i class="bi bi-exclamation-triangle-fill fs-3 me-3"></i>
+
+                            <div>
+
+                                <strong>Contraseña temporal</strong>
+
+                                <br />
+
+                                La contraseña inicial será:
+
+                                <span class="badge bg-dark fs-6">
+                                    12345
+                                </span>
+
+                                <br />
+
+                                El usuario deberá cambiarla al iniciar sesión por primera vez.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <form asp-action="CrearUsuario" method="post">
+
+                        <!-- Rol -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+
+                                <i class="bi bi-person-badge-fill me-2"></i>
+
+                                Rol
+
+                            </label>
+
+                            <select asp-for="IdRol"
+                                    asp-items="Model.Roles"
+                                    class="form-select"
+                                    id="rol">
+                            </select>
+
+                        </div>
+
+                        <!-- Estudiante -->
+
+                        <div class="mb-4" id="divEstudiantes">
+
+                            <label class="form-label fw-semibold">
+
+                                <i class="bi bi-mortarboard-fill me-2"></i>
+
+                                Estudiante
+
+                            </label>
+
+                            <select asp-for="IdEstudiante"
+                                    asp-items="Model.Estudiantes"
+                                    class="form-select">
+                            </select>
+
+                        </div>
+
+                        <!-- Docente -->
+
+                        <div class="mb-4" id="divDocentes" style="display:none">
+
+                            <label class="form-label fw-semibold">
+
+                                <i class="bi bi-person-workspace me-2"></i>
+
+                                Docente
+
+                            </label>
+
+                            <select asp-for="IdDocente"
+                                    asp-items="Model.Docentes"
+                                    class="form-select">
+                            </select>
+
+                        </div>
+
+                        <!-- Usuario -->
+
+                        <div class="mb-4">
+
+                            <label asp-for="Usuario" class="form-label fw-semibold">
+
+                                <i class="bi bi-person-circle me-2"></i>
+
+                                Nombre de usuario
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-at"></i>
+
+                                </span>
+
+                                <input asp-for="Usuario"
+                                       class="form-control"
+                                       placeholder="Ingrese el nombre de usuario" />
+
+                            </div>
+
+                            <span asp-validation-for="Usuario" class="text-danger small"></span>
+
+                        </div>
+
+                        <!-- Estado -->
+
+                        <div class="form-check form-switch mb-4">
+
+                            <input asp-for="Activo"
+                                   class="form-check-input"
+                                   style="transform:scale(1.3);" />
+
+                            <label asp-for="Activo"
+                                   class="form-check-label fw-semibold ms-2">
+
+                                Usuario Activo
+
+                            </label>
+
+                        </div>
+
+                        <hr />
+
+                        <!-- Botones -->
+
+                        <div class="d-flex justify-content-end gap-2">
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary px-4">
+
+                                <i class="bi bi-arrow-left"></i>
+
+                                Volver
+
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-success px-4">
+
+                                <i class="bi bi-save-fill"></i>
+
+                                Guardar Usuario
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+<script>
+
+const rol = document.getElementById("rol");
+const estudiantes = document.getElementById("divEstudiantes");
+const docentes = document.getElementById("divDocentes");
+
+function cambiarRol(){
+
+    if(rol.value == "2"){
+
+        estudiantes.style.display = "block";
+        docentes.style.display = "none";
+
+    }
+    else if(rol.value == "3"){
+
+        estudiantes.style.display = "none";
+        docentes.style.display = "block";
+
+    }
+    else{
+
+        estudiantes.style.display = "none";
+        docentes.style.display = "none";
+
+    }
+
+}
+
+rol.addEventListener("change", cambiarRol);
+
+cambiarRol();
+
+</script>
+
+}
