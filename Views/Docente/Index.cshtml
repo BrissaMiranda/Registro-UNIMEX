@@ -1,0 +1,216 @@
+@model SistemaUniversidad.ViewModels.DocentePerfilViewModel
+
+@{
+    ViewData["Title"] = "Panel del Docente";
+}
+
+<div class="card shadow-lg border-0">
+
+    <div class="card-header bg-primary text-white py-3">
+        <h2 class="mb-0">
+            <i class="bi bi-mortarboard-fill"></i>
+            Panel del Docente
+        </h2>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <!-- COLUMNA IZQUIERDA -->
+
+            <div class="col-lg-4 text-center border-end">
+
+                <div class="rounded-circle bg-light shadow mx-auto d-flex align-items-center justify-content-center"
+                    style="width:220px;height:220px;">
+
+                    <i class="bi bi-person-fill text-primary"
+                    style="font-size:120px;"></i>
+
+                </div>
+
+                <h3 class="fw-bold">
+                    @Model.NombreCompleto
+                </h3>
+
+                <h5 class="text-secondary">
+                    Usuario: @Model.Usuario
+                </h5>
+
+                <span class="badge bg-primary fs-6 px-3 py-2">
+
+                    Docente
+
+                </span>
+
+                <hr class="my-4">               
+
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+
+            <div class="col-lg-8">
+
+                <div class="card border-0 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h4 class="mb-4 text-primary">
+                            Información Personal
+                        </h4>
+
+                        <div class="row g-4">
+
+                            <div class="col-md-6">
+
+                                <div class="card border-primary shadow-sm h-100">
+
+                                    <div class="card-body">
+
+                                        <small class="text-muted">
+                                            <i class="bi bi-credit-card-2-front"></i>
+                                            Facultad
+                                        </small>
+
+                                        <h5 class="mt-2 mb-0 fw-bold">
+                                            @Model.Facultad
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card shadow-sm h-100">
+
+                                    <div class="card-body">
+
+                                        <small class="text-muted">
+                                            <i class="bi bi-mortarboard"></i>
+                                            Especialidad
+                                        </small>
+
+                                        <h5 class="mt-2 mb-0">
+                                            @Model.Especialidad
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+
+                            </div>                            
+
+                            <div class="col-md-6">
+
+                                <div class="card shadow-sm h-100">
+
+                                    <div class="card-body">
+
+                                        <small class="text-muted">
+                                            <i class="bi bi-envelope-fill"></i>
+                                            Correo
+                                        </small>
+
+                                        <h5 class="mt-2 mb-0">
+                                            @Model.Correo
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card shadow-sm h-100">
+
+                                    <div class="card-body">
+
+                                        <small class="text-muted">
+                                            <i class="bi bi-telephone-fill"></i>
+                                            Teléfono
+                                        </small>
+
+                                        <h5 class="mt-2 mb-0">
+                                            @Model.Telefono
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card shadow-sm h-100">
+
+                                    <div class="card-body">
+
+                                        <small class="text-muted">
+                                            <i class="bi bi-box-arrow-in-right"></i>
+                                            Inicios de sesión
+                                        </small>
+
+                                        <h5 class="mt-2 mb-0">
+                                            @Model.VecesInicioSesion
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card shadow-sm h-100">
+
+                                    <div class="card-body">
+
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock-history"></i>
+                                            Último acceso
+                                        </small>
+
+                                        <h5 class="mt-2 mb-0">
+                                            @(Model.FechaUltimoAcceso?.ToString("dd/MM/yyyy HH:mm") ?? "Primer ingreso")
+                                        </h5>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4">
+
+                    <a asp-controller="Cuenta"
+                       asp-action="CambiarPassword"
+                       class="btn btn-warning btn-lg">
+
+                        <i class="bi bi-key-fill"></i>
+
+                        Cambiar contraseña
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
