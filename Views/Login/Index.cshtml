@@ -1,0 +1,98 @@
+@model SistemaUniversidad.ViewModels.LoginViewModel
+
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-5">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-header bg-primary text-white text-center">
+
+                <h2>🎓 Sistema Universidad</h2>
+
+                <p class="mb-0">
+                    Gestión de Usuarios Académicos
+                </p>
+
+            </div>
+
+            <div class="card-body p-4">
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+                }
+
+                <form asp-action="Index" method="post">
+
+                    <div class="mb-3">
+
+                        <label asp-for="Usuario" class="form-label">
+                            Usuario
+                        </label>
+
+                        <input asp-for="Usuario"
+                               class="form-control form-control-lg"
+                               placeholder="Ingrese su usuario" />
+
+                        <span asp-validation-for="Usuario"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label asp-for="Password" class="form-label">
+                            Contraseña
+                        </label>
+
+                        <input asp-for="Password"
+                               type="password"
+                               class="form-control form-control-lg"
+                               placeholder="Ingrese su contraseña" />
+
+                        <span asp-validation-for="Password"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="d-grid">
+
+                        <button class="btn btn-primary btn-lg">
+
+                            Iniciar sesión
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="card-footer text-center text-muted">
+
+                Sistema Universidad © 2026
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
