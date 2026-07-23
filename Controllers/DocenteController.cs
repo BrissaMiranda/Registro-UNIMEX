@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaUniversidad.Base;
 using SistemaUniversidad.Services;
 
-// Programador: Juan Eduardo Lopez Jaime
+// Programador: Juan Eduardo Lopez J.
 namespace SistemaUniversidad.Controllers
 {
     public class DocenteController : BaseController
