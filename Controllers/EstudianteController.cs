@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaUniversidad.Base;
 using SistemaUniversidad.Services;
 
+// Programador: Pamela Saray Chavez Fernandez
 namespace SistemaUniversidad.Controllers
 {
     public class EstudianteController : BaseController
