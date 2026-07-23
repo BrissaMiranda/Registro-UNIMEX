@@ -1,3 +1,4 @@
+// Programador: Juan Eduardo Lopez Jaime
 namespace SistemaUniversidad.ViewModels
 {
     public class DocentePerfilViewModel
