@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-
+// Programador Josue
 namespace SistemaUniversidad.Base
 {
     public class BaseController : Controller
