@@ -1,3 +1,4 @@
+// Programador Josue
 namespace SistemaUniversidad.ViewModels
 {
     public class AdministradorViewModel
