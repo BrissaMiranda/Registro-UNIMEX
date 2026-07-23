@@ -5,7 +5,7 @@ using SistemaUniversidad.Data;
 using SistemaUniversidad.Models;
 using SistemaUniversidad.ViewModels;
 using SistemaUniversidad.Base;
-
+// Programador Josue
 namespace SistemaUniversidad.Controllers
 { 
     public class AdministradorController : BaseController
