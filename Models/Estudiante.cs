@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
+// Programador: Pamela Saray Chavez Fernandez
 namespace SistemaUniversidad.Models
 {
     public class Estudiante
