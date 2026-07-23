@@ -1,3 +1,5 @@
+// Programador: Pamela Saray Chavez Fernandez
+
 namespace SistemaUniversidad.ViewModels
 {
     public class EstudiantePerfilViewModel
