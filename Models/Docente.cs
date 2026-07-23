@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
+// Programador: Juan Eduardo Lopez Jaime
 namespace SistemaUniversidad.Models
 {
     public class Docente
