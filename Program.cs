@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaUniversidad.Data;
 using SistemaUniversidad.Services;
-
+// Programador Josue
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
